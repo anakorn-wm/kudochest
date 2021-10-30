@@ -2,6 +2,8 @@ br
 br
 br
 
-img src="#{App.asset_host}#{asset_pack_path("media/images/gifs/#{GIFS['48'].sample}.gif")}" alt='Animated GIF' style='margin: 0 auto; width: 48px; height: 48px;'
+- img = Base64.encode64(File.read(Rails.root.join("app/webpacker/images/gifs/#{GIFS['48'].sample}.gif")))
+img src="data:image/gif;base64,#{img}" alt='Animated GIF' style='margin: 0 auto; width: 48px; height: 48px;'
+
 
 p You can disable this report in <a href="#{app_settings_url(section: :reports)}">profile settings</a> or <a href="#{unsubscribe_url(token: @unsub_token)}">unsubscribe from all #{App.app_name} emails</a>.
